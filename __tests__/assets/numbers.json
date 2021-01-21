@@ -1,0 +1,23 @@
+[
+    {
+       "numberOne":-4,
+        "numberTwo":5,
+        "sum":1
+    },
+    {
+        "numberOne":2,
+         "numberTwo":6,
+         "sum":8
+     },
+     {
+        "numberOne":3,
+         "numberTwo": -8,
+         "sum":-5
+     },
+     {
+        "numberOne":-1,
+         "numberTwo":-7,
+         "sum":-8
+     }
+    
+]

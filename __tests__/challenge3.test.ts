@@ -1,5 +1,6 @@
 import { Driver } from "selenium-webdriver/chrome";
 import { Widgets } from "./pages/Widgets";
+import * as numbers from "./assets/numbers.json";
 
 describe("Sum widget testing", () => {
     let widget = new Widgets();
@@ -9,13 +10,14 @@ describe("Sum widget testing", () => {
     afterAll(async () => {
       await widget.driver.quit();
     });
-
-    test("Sum", async()=>{
-        await widget.setSumInputOne(4);
-        await widget.setSumInputTwo(5);
-        await widget.addButton();
-        let sum = (await widget.getSumResult()).toString();
-        expect(sum).toContain("9");
+    numbers.forEach((newNumber)=>{
+      test(`Sum of ${newNumber.numberOne} plus ${newNumber.numberTwo} is ${newNumber.sum}`, async()=>{
+          await widget.setSumInputOne(newNumber.numberOne);
+          await widget.setSumInputTwo(newNumber.numberTwo);
+          await widget.addButton();
+          let sum = (await widget.getSumResult()).toString();
+          expect(sum).toContain(newNumber.sum);
+      })
     })
     
 });
